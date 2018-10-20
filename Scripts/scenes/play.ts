@@ -24,7 +24,7 @@ namespace scenes {
     // public methods
 
     public Start(): void {
-      this._cloudNum = 3;
+      this._cloudNum = 1;
 
       // Instantiates a new Array container of Type objects.Cloud
       this._clouds = new Array<objects.Cloud>();
@@ -81,6 +81,7 @@ namespace scenes {
       this._clouds.forEach(cloud => {
         this.addChild(cloud);
       });
+      
 
       // add ScoreBoard UI to the Scene
       managers.Game.scoreBoard.AddGameUI(this);

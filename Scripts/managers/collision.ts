@@ -23,6 +23,9 @@ module managers {
                             let yaySound = createjs.Sound.play("yaySound");
                             yaySound.volume = 0.1;
                             managers.Game.scoreBoard.Score += 100;
+                            if(managers.Game.scoreBoard.Score == 500) {
+                                managers.Game.currentState = config.Scene.LEVEL2;
+                            }
                         break;
                         case "cloud":
                             let thunderSound = createjs.Sound.play("thunderSound");

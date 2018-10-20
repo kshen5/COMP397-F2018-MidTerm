@@ -13,24 +13,24 @@ var __extends = (this && this.__extends) || (function () {
 })();
 var scenes;
 (function (scenes) {
-    var Play = /** @class */ (function (_super) {
-        __extends(Play, _super);
+    var Level2 = /** @class */ (function (_super) {
+        __extends(Level2, _super);
         // public properties
         // constructor
-        function Play() {
+        function Level2() {
             var _this = _super.call(this) || this;
             _this.Start();
             return _this;
         }
         // private methods
         // public methods
-        Play.prototype.Start = function () {
-            this._cloudNum = 1;
+        Level2.prototype.Start = function () {
+            this._cloudNum = 2;
             // Instantiates a new Array container of Type objects.Cloud
             this._clouds = new Array();
             // Fill the Cloud Array with Clouds
             for (var count = 0; count < this._cloudNum; count++) {
-                this._clouds[count] = new objects.Cloud();
+                this._clouds[count] = new objects.Cloud2();
             }
             // play background engine sound when the level starts
             this._engineSound = createjs.Sound.play("engineSound");
@@ -38,7 +38,7 @@ var scenes;
             this._engineSound.loop = -1; // loop forever
             this.Main();
         };
-        Play.prototype.Update = function () {
+        Level2.prototype.Update = function () {
             var _this = this;
             this._ocean.Update();
             this._player.Update();
@@ -51,21 +51,21 @@ var scenes;
                 managers.Collision.Check(_this._player, cloud);
             });
         };
-        Play.prototype.Destroy = function () {
+        Level2.prototype.Destroy = function () {
             this.removeAllChildren();
             this._engineSound.stop();
         };
-        Play.prototype.Reset = function () { };
-        Play.prototype.Main = function () {
+        Level2.prototype.Reset = function () { };
+        Level2.prototype.Main = function () {
             var _this = this;
             // adds ocean to the scene
-            this._ocean = new objects.Ocean();
+            this._ocean = new objects.Ocean2();
             this.addChild(this._ocean);
             // adds island to the scene
-            this._island = new objects.Island();
+            this._island = new objects.Island2();
             this.addChild(this._island);
             // adds player to the scene
-            this._player = new objects.Player();
+            this._player = new objects.Player2();
             this.addChild(this._player);
             // adds Each Cloud in the Cloud Array to the Scene
             this._clouds.forEach(function (cloud) {
@@ -74,8 +74,8 @@ var scenes;
             // add ScoreBoard UI to the Scene
             managers.Game.scoreBoard.AddGameUI(this);
         };
-        return Play;
+        return Level2;
     }(objects.Scene));
-    scenes.Play = Play;
+    scenes.Level2 = Level2;
 })(scenes || (scenes = {}));
-//# sourceMappingURL=play.js.map
+//# sourceMappingURL=level2.js.map
